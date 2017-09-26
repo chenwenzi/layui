@@ -1,0 +1,316 @@
+ 
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>layout 后台大布局 - Layui</title>
+<link rel="stylesheet" href="../src/css/layui.css">
+  <link rel="stylesheet" href="../src/css/global.css?t=1506115091585" media="all">
+</head>
+<body class="layui-layout-body">
+
+
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header header header-demo">
+  <div class="layui-main">
+    <a class="logo" href="/">
+      <img src="/img/logo.png" alt="layui">
+    </a>
+    <div class="layui-form component">
+      <select lay-search lay-filter="component">
+        <option value="">搜索组件或模块</option>
+        <option value="element/layout.html">grid 栅格布局</option>
+        <option value="element/layout.html#admin">admin 后台布局</option>
+        <option value="element/color.html">color 颜色</option>
+        <option value="element/icon.html">iconfont 字体图标</option>
+      </select>
+    </div>
+
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+          admin
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="">退出</a></li>
+    </ul>
+
+  </div>
+</div>
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      
+<ul class="layui-nav layui-nav-tree site-demo-nav">
+  
+  <li class="layui-nav-item layui-nav-itemed">
+    <a class="javascript:;" href="javascript:;">欢迎</a>
+    <dl class="layui-nav-child">
+      <dd>
+        <a href="/demo/">用户</a>
+      </dd>
+    </dl>
+  </li>
+  
+  <li class="layui-nav-item layui-nav-itemed">
+    <a class="javascript:;" href="javascript:;">新闻</a>
+    <dl class="layui-nav-child">
+      <dd class="layui-this">
+        <a href="/demo/grid.html">发布新闻</a>
+      </dd>
+	  <dd class="">
+        <a href="/demo/admin.html">新闻列表</a>
+      </dd>
+      <dd class="">
+        <a href="/demo/admin.html">其他</a>
+      </dd>
+    </dl>
+  </li>
+
+    <li class="layui-nav-item layui-nav-itemed">
+    <a class="javascript:;" href="javascript:;">公共页面</a>
+    <dl class="layui-nav-child">
+      <dd class="">
+        <a href="/demo/button.html">公用头部</a>
+      </dd>
+      <dd class="">
+        <a href="/demo/form.html">公用尾部</a>
+      </dd>
+      <dd class="">
+        <a href="/demo/nav.html">公用统计</a>
+      </dd>
+    </dl>
+  </li>
+  
+  <li class="layui-nav-item layui-nav-itemed">
+    <a class="javascript:;" href="javascript:;">首页定制</a>
+    <dl class="layui-nav-child">
+      <dd class="">
+        <a href="/demo/button.html">首页导航</a>
+      </dd>
+      <dd class="">
+        <a href="/demo/form.html">首页轮询</a>
+      </dd>
+      <dd class="">
+        <a href="/demo/nav.html">首页下方</a>
+      </dd>
+    </dl>
+  </li>
+
+  <li class="layui-nav-item layui-nav-itemed">
+    <a class="javascript:;" href="javascript:;">产品页</a>
+    <dl class="layui-nav-child">
+      <dd class="">
+        <a href="/demo/button.html">图片</a>
+      </dd>
+      <dd class="">
+        <a href="/demo/form.html">参数</a>
+      </dd>
+      <dd class="">
+        <a href="/demo/nav.html">更多</a>
+      </dd>
+    </dl>
+  </li>
+  
+  <li class="layui-nav-item" style="height: 30px; text-align: center"></li>
+</ul>
+
+    </div>
+  </div>
+  <div class="layui-tab layui-tab-brief" lay-filter="demoTitle">
+
+    <div class="layui-body layui-tab-content site-demo site-demo-body">
+    
+    
+
+        <div class="layui-main">
+          <div id="LAY_preview">
+          
+<blockquote class="layui-elem-quote layui-text">
+  1. <a href="/doc/modules/form.html#render" target="_blank">动态添加的表单元素如何更新？</a>
+</blockquote>
+              
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+  <legend>发布新闻</legend>
+</fieldset>
+ 
+<form class="layui-form" action="">
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <input type="text" name="title" lay-verify="required" autocomplete="off" placeholder="新闻标题" class="layui-input">
+    </div>
+  </div>
+
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <input type="radio" name="category" value="新闻报道" title="新闻报道" checked>
+      <input type="radio" name="category" value="CCTV报道" title="CCTV报道">
+      <input type="radio" name="category" value="专题报道" title="专题报道">
+    </div>
+  </div>
+  
+  
+  <div class="layui-form-item">
+	  <div class="layui-input-block">
+		<input type="text" name="time" id="time" lay-verify="empty|time" placeholder="定时发布时间，留空则立即发布" autocomplete="off" class="layui-input">
+	  </div>
+  </div>
+
+
+  
+  <div class="layui-form-item" style="display:none">
+    <div class="layui-input-block">
+    <div class="layui-inline">
+      <select name="interest" lay-filter="aihao">
+        <option value="" selected>选择新闻类型</option>
+        <option value="1" >新闻报道</option>
+        <option value="2" >CCTV报道</option>
+        <option value="3">专题报道</option>
+		<option value="4">其他</option>
+      </select>
+    </div>
+	</div>
+  </div>
+
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+       <input type="tel" name="url" lay-verify="empty|url" placeholder="外链新闻地址 或 本站视频地址" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  
+  <div class="layui-form-item" pane>
+    <div class="layui-input-block">
+      <input type="radio" name="show_type" lay-skin="primary" title="新闻" checked>
+      <input type="radio" name="show_type" lay-skin="primary" title="视频">
+      <input type="radio" name="show_type" lay-skin="primary" title="链接">
+	  <input type="radio" name="show_type" lay-skin="primary" title="其他">
+    </div>
+  </div>
+  
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <input type="checkbox" checked name="public" lay-skin="switch" lay-filter="switchTest" lay-text="公开|私密">
+    </div>
+  </div>
+
+  <div class="layui-form-item layui-form-text">
+    <div class="layui-input-block">
+      <textarea class="layui-textarea layui-hide" name="content" lay-verify="content" id="LAY_demo_editor"></textarea>
+    </div>
+  </div>
+    <div class="layui-form-item layui-form-text">
+    <div class="layui-input-block">
+      <textarea placeholder="备注" class="layui-textarea"></textarea>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="demo1">保存新闻</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置表单</button>
+    </div>
+  </div>
+    <div class="layui-form-item">
+    <div class="layui-input-block">
+      &nbsp;
+    </div>
+  </div>
+</form>
+
+
+        
+        
+  </div>
+  <div class="layui-footer footer footer-demo">
+  <div class="layui-main">
+    <p>&copy; 2017 <a href="/">layui.com</a> MIT license</p>
+    <p>
+      <a href="http://fly.layui.com/case/2017/" target="_blank">案例</a>
+      <a href="http://fly.layui.com/jie/3147.html" target="_blank">捐赠</a>
+      <!--<a href="javascript:layer.msg('暂无此页');">关于我们</a>-->
+      <a href="mailto:xianxin@layui.com">联系</a>
+      <a href="https://github.com/sentsin/layui/" target="_blank">GitHub</a>
+      <a href="https://gitee.com/sentsin/layui" target="_blank">码云</a>
+      <a href="http://fly.layui.com/jie/2461.html" target="_blank">微信公众号</a>
+    </p>
+  </div>
+</div>
+<div class="site-tree-mobile layui-hide">
+  <i class="layui-icon">&#xe602;</i>
+</div>
+<div class="site-mobile-shade"></div>
+<script src="../src/layui.js" charset="utf-8"></script>
+<script>
+layui.config({
+  base: '../src/lay/modules/layui/'
+  ,version: '1506115091585'
+}).use('global');
+ 
+window.global = {
+  preview: function(){
+    var preview = document.getElementById('LAY_preview');
+    return preview ? preview.innerHTML : '';
+  }()
+};
+</script>
+
+</div>
+<div id="LAY_democodejs">
+<script>
+layui.use(['form', 'layedit', 'laydate', 'element'], function(){
+  var form = layui.form
+  ,layer = layui.layer
+  ,layedit = layui.layedit
+  ,laydate = layui.laydate
+  ,element = layui.element;
+  
+  //日期
+  laydate.render({
+    elem: '#time',
+	type: 'datetime'
+  });
+  
+  //创建一个编辑器
+  var editIndex = layedit.build('LAY_demo_editor');
+ 
+  //自定义验证规则
+  form.verify({
+    title: function(value){
+      if(value.length < 5){
+        return '标题至少得5个字符啊';
+      }
+    }
+    ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+    ,content: function(value){
+      layedit.sync(editIndex);
+    }
+  });
+  
+  //监听指定开关
+  form.on('switch(switchTest)', function(data){
+    //layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+      //offset: '6px'
+    //});
+    //layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+  });
+  
+  //监听提交
+  form.on('submit(demo1)', function(data){
+    layer.alert(JSON.stringify(data.field), {
+      title: '最终的提交信息'
+    })
+    return false;
+  });
+  
+  
+});
+</script>
+</div>
+</body>
+
+</html>

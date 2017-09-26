@@ -42,6 +42,10 @@ layui.define('layer', function(exports){
           /^(\d{4})[-\/](\d{1}|0\d{1}|1[0-2])([-\/](\d{1}|0\d{1}|[1-2][0-9]|3[0-1]))*$/
           ,'日期格式不正确'
         ]
+        ,time: [
+          /^(?:19|20)[0-9][0-9]-(?:(?:0[1-9])|(?:1[0-2]))-(?:(?:[0-2][1-9])|(?:[1-3][0-1])) (?:(?:[0-2][0-3])|(?:[0-1][0-9])):[0-5][0-9]:[0-5][0-9]$/
+          ,'时间格式不正确'
+        ]
         ,identity: [
           /(^\d{15}$)|(^\d{17}(x|X|\d)$)/
           ,'请输入正确的身份证号'
@@ -410,9 +414,18 @@ layui.define('layer', function(exports){
  
     //开始校验
     layui.each(verifyElem, function(_, item){
-      var othis = $(this), ver = othis.attr('lay-verify').split('|');
+      var othis = $(this), lay_verify = othis.attr('lay-verify'), ver = lay_verify.split('|');
       var tips = '', value = othis.val();
       othis.removeClass(DANGER);
+
+	  //can empty val lay-verify="empty|url"		
+	  if(lay_verify.indexOf('empty') != -1){
+		  if(value.replace(/\s+/g, '').length == 0){
+			return ;//continue;
+		  }
+	  }
+	  //end
+
       layui.each(ver, function(_, thisVer){
         var isFn = typeof verify[thisVer] === 'function';
         if(verify[thisVer] && (isFn ? tips = verify[thisVer](value, item) : !verify[thisVer][0].test(value)) ){
